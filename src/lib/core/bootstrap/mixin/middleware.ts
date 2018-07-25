@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import { Booter } from '../index';
 import { readFile } from '../../utils';
 
-const initMiddleware = function(this: Booter) {
+const initMiddleware = function (this: Booter) {
     const app = this.app;
     const middlewareDirs: string[] = [
         path.join(this.options.sinbaRoot, 'app/middleware'),
@@ -17,11 +17,11 @@ const initMiddleware = function(this: Booter) {
             for (const middlewareFilename of middlewares) {
                 const middlewareName: string = path.basename(
                     middlewareFilename,
-                    '.js'
+                    '.js',
                 );
                 const middlewareFilepath: string = path.join(
                     middlewareDir,
-                    middlewareFilename
+                    middlewareFilename,
                 );
                 const middlewareFunc = readFile(middlewareFilepath);
                 app.middlewares[middlewareName] = middlewareFunc;
