@@ -53,6 +53,7 @@
 
   },
   "include": [
+    "index.d.ts",
     "src/**/*.ts"
   ],
   "exclude": [
