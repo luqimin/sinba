@@ -1,3 +1,3 @@
-import * as bodyparser from 'koa-bodyparser';
+import * as bodyparser from 'koa-body';
 
 export = bodyparser;

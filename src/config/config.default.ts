@@ -57,30 +57,16 @@ export = (appInfo: Booter) => {
 
         /**
          * The option of `bodyParser` middleware
-         *
-         * @member Config#bodyParser
-         * @property {Boolean} enable - enable bodyParser or not, default is true
-         * @property {String | RegExp | Function | Array} ignore - won't parse request body when url path hit ignore pattern, can not set `ignore` when `match` presented
-         * @property {String | RegExp | Function | Array} match - will parse request body only when url path hit match pattern
-         * @property {String} encoding - body's encoding type，default is utf8
-         * @property {String} formLimit - limit of the urlencoded body. If the body ends up being larger than this limit, a 413 error code is returned. Default is 100kb
-         * @property {String} jsonLimit - limit of the json body, default is 100kb
-         * @property {Boolean} strict - when set to true, JSON parser will only accept arrays and objects. Default is true
-         * @property {Number} queryString.arrayLimit - urlencoded body array's max length, default is 100
-         * @property {Number} queryString.depth - urlencoded body object's max depth, default is 5
-         * @property {Number} queryString.parameterLimit - urlencoded body maximum parameters, default is 1000
+         * https://www.npmjs.com/package/koa-body
          */
         bodyParser: {
             enable: true,
             encoding: 'utf8',
             formLimit: '100kb',
-            jsonLimit: '100kb',
-            strict: true,
-            queryString: {
-                arrayLimit: 100,
-                depth: 5,
-                parameterLimit: 1000,
-            },
+            textLimit: '100kb',
+            jsonLimit: '1mb',
+            jsonStrict: true,
+            strict: false,
         },
     };
 };
