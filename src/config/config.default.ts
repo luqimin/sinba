@@ -1,9 +1,6 @@
-import * as fs from 'fs';
 import * as path from 'path';
 
 import { Booter } from '../lib/core/bootstrap';
-
-const cwd = process.cwd();
 
 export = (appInfo: Booter) => {
     return {
@@ -14,7 +11,7 @@ export = (appInfo: Booter) => {
             /**
              * sin logbook日志保存目录路径
              */
-            path: path.join(cwd, 'log'),
+            path: path.join(appInfo.options.baseDir, 'log'),
             /**
              * sin logbook日志是否按日期分片
              */

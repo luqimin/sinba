@@ -22,7 +22,7 @@ export interface SinbaOptions {
 /**
  * sinba core参数  new Sinba(coreConfig)
  */
-const cwd = process.cwd();
+const cwd = process.env.IME_SERVER_PATH || process.cwd();
 const coreConfig = {
     port: 3000,
     baseDir: cwd,
