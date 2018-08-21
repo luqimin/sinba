@@ -2,7 +2,7 @@
 
 ## 使用说明
 
-sinba所暴露api与eggjs答题一致，使用可参考[eggjs文档](http://eggjs.org/zh-cn/intro/quickstart.html)
+sinba所暴露api与eggjs大体一致，使用可参考[eggjs文档](http://eggjs.org/zh-cn/intro/quickstart.html)
 
 ## 日记级别说明
 

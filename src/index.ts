@@ -26,7 +26,7 @@ class Application extends SinbaCore {
      * 启动服务
      */
     public start(): Server {
-        this.logger.log(`Sinba server start on port ${this.options.port}`);
+        this.logger.log(`Sinba server start on: http://127.0.0.1:${this.options.port}`);
 
         this._server = this.listen(this.options.port);
         return this._server;
