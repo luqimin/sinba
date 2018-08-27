@@ -9,6 +9,7 @@ const Sinba = require('..');
 
 describe('index.test.js', () => {
     let sinbaApp = new Sinba.Application({
+        port: 7000,
         baseDir: path.join(__dirname, './basic'),
     });
 

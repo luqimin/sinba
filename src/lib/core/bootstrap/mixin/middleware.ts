@@ -49,7 +49,6 @@ const initMiddleware = function (this: Booter) {
         }
         let mw = app.middlewares[name];
         mw = mw(options);
-        // console.log(mw);
         if (mw) {
             app.use(mw);
         }

@@ -6,7 +6,7 @@ const Sinba = require('..');
 
 describe('port.test.js', () => {
     let sinbaApp = new Sinba.Application({
-        port: 3001,
+        port: 7001,
         baseDir: path.join(__dirname, './basic'),
     });
 
@@ -25,7 +25,6 @@ describe('port.test.js', () => {
         });
     });
 
-    // const agent = request.agent(sinbaApp.start());
     const server = sinbaApp.start()
 
     describe('发一个请求试一哈', () => {
