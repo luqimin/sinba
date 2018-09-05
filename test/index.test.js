@@ -18,6 +18,11 @@ describe('index.test.js', () => {
         sinbaApp && sinbaApp.close();
     });
 
+    // for session
+    sinbaApp.keys = ['some secret hurr'];
+    // for getApp middleware test
+    sinbaApp.test = 'we can get app in a middleware';
+
     it('Sinba暴露几个属性或方法', () => {
         assert(Sinba.Application);
         assert(Sinba.Service);
@@ -84,6 +89,30 @@ describe('index.test.js', () => {
                 .expect('Content-Type', /json/)
                 .expect(200);
             assert.equal(res1.body.name + res2.body.name, 'testnametest2name');
+        });
+        it('`/user/getapp` 中间件获取app测试', async () => {
+            const res = await request(server)
+                .get('/user/getapp')
+                .expect('Content-Type', /json/)
+                .expect(200);
+            assert.equal(res.body.a, 'we can get app in a middleware');
+            assert.equal(res.body.b, 'we can modify app in a middleware');
+        });
+        it('`/user/session` session测试', async () => {
+            const res = await request(server)
+                .get('/user/session')
+                .expect('Content-Type', /text\/plain/)
+                .expect('set-cookie', /_sinba_sess=.*?;/)
+                .expect(200);
+            assert.equal(res.text, '1 views');
+        });
+        it('`/user/session/remove` 销毁session测试', async () => {
+            const res = await request(server)
+                .get('/user/session/remove')
+                .expect('Content-Type', /text\/plain/)
+                .expect('set-cookie', /_sinba_sess=;/)
+                .expect(200);
+            assert.equal(res.text, 'session removed');
         });
         it('`/user/middleware1` 全局middleware修改ctx.body', async () => {
             const res = await request(server)

@@ -28,6 +28,25 @@ class UserController extends Controller {
         ctx.body = ctx.body;
     }
 
+    async session() {
+        const { ctx } = this;
+
+        let n = ctx.session.views || 0;
+        ctx.session.views = ++n;
+        ctx.body = n + ' views';
+    }
+
+    async removeSession() {
+        const { ctx } = this;
+        ctx.session = null;
+        ctx.body = 'session removed';
+    }
+
+    async getApp() {
+        const { ctx, app } = this;
+        ctx.body = { a: app.test, b: app.testInMiddleware };
+    }
+
     async username() {
         const { ctx } = this;
         ctx.body = ctx.headers['text_name'];

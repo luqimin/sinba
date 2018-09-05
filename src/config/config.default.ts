@@ -65,5 +65,20 @@ export = (appInfo: Booter) => {
             jsonStrict: true,
             strict: false,
         },
+
+        /**
+         * The option of `session` middleware
+         * https://github.com/koajs/session
+         */
+        session: {
+            key: '_sinba_sess',
+            maxAge: 'session',
+            autoCommit: true,
+            overwrite: true,
+            httpOnly: true,
+            signed: true,
+            rolling: false,
+            renew: false,
+        },
     };
 };

@@ -1,2 +1,8 @@
 const { Application } = require('../../index.js');
-new Application().start();
+
+const sinbaApp = new Application();
+
+sinbaApp.start();
+
+// for koa-session
+sinbaApp.keys = ['a', 'b'];

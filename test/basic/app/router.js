@@ -8,6 +8,9 @@ module.exports = (app) => {
     router.get('/user', controller.user.render);
     router.get('/ejs/:name?', controller.user.ejs);
     router.get('/user/json/:name', controller.user.getUserInfo);
+    router.get('/user/getapp', controller.user.getApp);
+    router.get('/user/session', controller.user.session);
+    router.get('/user/session/remove', controller.user.removeSession);
     router.get('/user/middleware1', controller.user.middlerware1);
     router.get('/user/middleware2', middlewares.getRequestTime(), controller.user.middlerware2);
 
