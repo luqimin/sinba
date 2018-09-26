@@ -19,7 +19,6 @@ class Application extends SinbaCore {
         this.logger.log('Sinba initing...');
         this.init();
         this.logger.log('Sinba inited!');
-        this.logger.name('sinba').logbook('Sinba inited!');
     }
 
     /**
@@ -37,12 +36,10 @@ class Application extends SinbaCore {
      */
     public close() {
         this.logger.log('Sinba application destroying...');
-        this.logger.name('sinba').logbook('Sinba destroying...');
 
         // 关闭server服务
         this._server.close(() => {
             this.logger.log('Sinba application destroyed');
-            this.logger.name('sinba').logbook('Sinba destroyed!');
             // 关闭定时任务
             this.schedule.cancelAll();
         });
