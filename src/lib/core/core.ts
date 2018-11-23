@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { existsSync } from 'fs';
 import * as Koa from 'koa';
 import * as Router from 'koa-router';
 
@@ -91,7 +92,10 @@ class SinbaCore extends Koa {
 
         try {
             // 将sinba实例信息写入options
-            this.options.sin = utils.readFile(path.join(this.options.baseDir, 'package.json'));
+            const packageJsonPath: string = path.join(this.options.baseDir, 'package.json');
+            if (existsSync(packageJsonPath)) {
+                this.options.sin = utils.readFile(packageJsonPath);
+            }
         } catch (error) {
             throw error;
         }

@@ -12,7 +12,7 @@ export interface SinbaOptions {
     /**
      * sin package.json内容
      */
-    sin: { [key: string]: any };
+    sin?: { [key: string]: any };
     /**
      * Sinba运行路径
      */
