@@ -5,17 +5,29 @@ import * as Router from 'koa-router';
 import { Booter, UserConfig } from './bootstrap';
 import { BaseController } from './base/controller';
 import { BaseService } from './base/service';
-
 import { SinbaContext } from './base/sinba';
 
 import * as utils from './utils';
 import { Logger } from './logger';
 import { SinbaSchedule } from './schedule';
-
 import { coreConfig, SinbaOptions } from '../config/default';
 
-export type SinbaBooter = Booter;
+export interface SinbaAppOptions {
+    /**
+     * sin运行端口
+     */
+    port?: SinbaOptions['port'];
+    /**
+     * sin运行目录
+     */
+    baseDir?: SinbaOptions['baseDir'];
+    /**
+     * Sinba运行路径
+     */
+    sinbaRoot?: SinbaOptions['sinbaRoot'];
+}
 
+export type SinbaBooter = Booter;
 export const ROUTER: unique symbol = Symbol('sinba-router');
 
 class SinbaCore extends Koa {
@@ -71,7 +83,7 @@ class SinbaCore extends Koa {
      */
     protected Service: typeof BaseService;
 
-    constructor(options?: SinbaOptions) {
+    constructor(options?: any) {
         super();
 
         // 初始化sinba options
@@ -79,9 +91,7 @@ class SinbaCore extends Koa {
 
         try {
             // 将sinba实例信息写入options
-            this.options.sin = utils.readFile(
-                path.join(this.options.baseDir, 'package.json'),
-            );
+            this.options.sin = utils.readFile(path.join(this.options.baseDir, 'package.json'));
         } catch (error) {
             throw error;
         }

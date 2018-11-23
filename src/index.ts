@@ -1,7 +1,7 @@
 import { Server } from 'http';
 import {
     SinbaCore,
-    SinbaOptions,
+    SinbaAppOptions,
     BaseController as Controller,
     BaseService as Service,
 } from './lib/core/core';
@@ -13,7 +13,7 @@ class Application extends SinbaCore {
      */
     private _server: Server;
 
-    constructor(options?: SinbaOptions) {
+    constructor(options?: SinbaAppOptions) {
         super(options);
 
         this.logger.log('Sinba initing...');
