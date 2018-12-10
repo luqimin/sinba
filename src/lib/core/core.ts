@@ -162,4 +162,4 @@ class SinbaCore extends Koa {
     }
 }
 
-export { SinbaOptions, SinbaCore, BaseController, BaseService, utils };
+export { SinbaOptions, SinbaCore, SinbaContext, BaseController, BaseService, utils };

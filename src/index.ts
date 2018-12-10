@@ -2,12 +2,12 @@ import { Server } from 'http';
 import {
     SinbaCore,
     SinbaAppOptions,
+    SinbaContext,
     BaseController as Controller,
     BaseService as Service,
 } from './lib/core/core';
 
 class Application extends SinbaCore {
-
     /**
      * Sinba启动的http服务
      */
@@ -67,8 +67,4 @@ class Application extends SinbaCore {
     }
 }
 
-export {
-    Application,
-    Controller,
-    Service,
-};
+export { Application, Controller, Service, SinbaContext as Context };
