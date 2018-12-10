@@ -1,6 +1,6 @@
 {
   "name": "sinba",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Sinba, a web framework",
   "main": "index.js",
   "scripts": {
