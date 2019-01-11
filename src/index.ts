@@ -67,4 +67,4 @@ class Application extends SinbaCore {
     }
 }
 
-export { Application, Controller, Service, SinbaContext as Context };
+export { Application, Controller, Service, SinbaCore, SinbaContext as Context };
