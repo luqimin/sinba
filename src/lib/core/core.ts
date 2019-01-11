@@ -33,6 +33,11 @@ export const ROUTER: unique symbol = Symbol('sinba-router');
 
 class SinbaCore extends Koa {
     /**
+     * 其他挂载在app上的方法
+     */
+    [key: string]: any;
+
+    /**
      * router缓存
      */
     public [ROUTER]: Router;
