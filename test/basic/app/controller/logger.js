@@ -10,6 +10,7 @@ class UserController extends Controller {
         app.logger.debug('debug');
         app.logger.error('error');
         app.logger.name('sinbaDemo:name').debug('sinbaDemo:debug');
+        app.logger.name('sinba').logbook('测试logbook');
 
         ctx.body = `hello world; logger!`;
     }

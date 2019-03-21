@@ -52,7 +52,7 @@ describe('index.test.js', () => {
         it('`/` 打开首页', (done) => {
             request(server)
                 .get('/')
-                .expect('Content-Type', /text\/plain/)
+                .expect('Content-Type', /text\/html/)
                 .expect(200, done);
         });
         it('`/user` 打开/user', (done) => {
